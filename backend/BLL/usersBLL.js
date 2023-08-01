@@ -60,8 +60,8 @@ const login = asyncHandler(async (req, res) => {
       token: generateToken(user._id),
     });
   } else {
-    req.status(401);
-    throw new Error('User not found');
+    res.status(401);
+    throw new Error('Invalid email or password');
   }
 });
 
