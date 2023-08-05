@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv').config();
 const usersRoute = require('./routes/userRoutes');
+const ticketRoute = require('./routes/ticketRoutes')
 const { errorHandler } = require('./middleware/errorMiddleware');
 const connectDB = require('./config/db');
 
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // Routes
 app.use('/api/users', usersRoute);
+app.use('/api/tickets', ticketRoute)
 
 app.use(errorHandler);
 
